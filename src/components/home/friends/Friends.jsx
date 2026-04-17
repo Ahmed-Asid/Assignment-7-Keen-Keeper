@@ -7,7 +7,7 @@ const Friends = () => {
     const friends = use(friendsPromise);
 
     return (
-        <div>
+        <div className='space-y-4'>
             <h3 className='text-2xl font-semibold'>Your Friends</h3>
             <div className='grid grid-cols-4 gap-6'>
                 {
