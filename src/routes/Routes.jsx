@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router';
 import MainLayout from '../layout/MainLayout';
 import ErrorPage from '../error/ErrorPage';
 import Homepage from '../Pages/homepage/Homepage';
+import FriendDetails from '../Pages/friendDetails/FriendDetails';
 
 const router = createBrowserRouter([
     {
@@ -13,6 +14,11 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Homepage></Homepage>
+            },
+            {
+                path: '/friendDetails/:id',
+                element: <FriendDetails />,
+                loader: () => fetch('/friends.json')
             }
         ]
     }
