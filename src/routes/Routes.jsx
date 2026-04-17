@@ -4,6 +4,7 @@ import MainLayout from '../layout/MainLayout';
 import ErrorPage from '../error/ErrorPage';
 import Homepage from '../Pages/homepage/Homepage';
 import FriendDetails from '../Pages/friendDetails/FriendDetails';
+import Timeline from '../Pages/timeline/Timeline';
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
                 path: '/friendDetails/:id',
                 element: <FriendDetails />,
                 loader: () => fetch('/friends.json')
+            },
+            {
+                path: '/timeline',
+                element: <Timeline />
             }
         ]
     }

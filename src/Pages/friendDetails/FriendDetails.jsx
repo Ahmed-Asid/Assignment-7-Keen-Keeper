@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FiPhoneCall } from 'react-icons/fi';
 import { HiOutlineArchiveBox, HiOutlineBellSnooze, HiOutlineTrash } from 'react-icons/hi2';
 import { PiChatCircleTextBold, PiVideoCameraBold } from 'react-icons/pi';
 import { useLoaderData, useParams } from 'react-router';
+import { FriendContext } from '../../context/Interactions';
 
 const FriendDetails = () => {
     const { id } = useParams();
@@ -11,6 +12,7 @@ const FriendDetails = () => {
 
     const expectedFriend = friends.find(f => f.id == id);
 
+    const { handleInteraction } = useContext(FriendContext);
     return (
         <div className='w-[80%] mx-auto grid grid-cols-3 gap-6 my-20'>
             <div>
@@ -61,15 +63,15 @@ const FriendDetails = () => {
                 <div className='bg-white rounded-lg p-6 space-y-4 col-span-3'>
                     <p className='text-xl font-medium'>Relationship Goal</p>
                     <div className='grid grid-cols-3 gap-4'>
-                        <div className="rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
+                        <div onClick={() => handleInteraction(expectedFriend, 'call')} className="cursor-pointer rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
                             <FiPhoneCall size={24} />
                             <p className='text-lg'>Call</p>
                         </div>
-                        <div className="rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
+                        <div onClick={() => handleInteraction(expectedFriend, 'text')} className="cursor-pointer rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
                             <PiChatCircleTextBold size={24} />
                             <p className='text-lg'>Text</p>
                         </div>
-                        <div className="rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
+                        <div onClick={() => handleInteraction(expectedFriend, 'video_call')} className="cursor-pointer rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
                             <PiVideoCameraBold size={24} />
                             <p className='text-lg'>Video</p>
                         </div>
