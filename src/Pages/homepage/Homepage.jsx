@@ -4,7 +4,7 @@ import Friends from '../../components/home/friends/Friends';
 
 const Homepage = () => {
     return (
-        <div className='my-20 w-[80%] mx-auto'>
+        <div className='my-20 w-[90%] md:w-[80%] mx-auto'>
             <Banner />
             <Friends />
         </div>

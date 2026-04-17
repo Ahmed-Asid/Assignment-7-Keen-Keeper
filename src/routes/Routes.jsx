@@ -5,7 +5,7 @@ import ErrorPage from '../error/ErrorPage';
 import Homepage from '../Pages/homepage/Homepage';
 import FriendDetails from '../Pages/friendDetails/FriendDetails';
 import Timeline from '../Pages/timeline/Timeline';
-import Analytics from '../Pages/analytics/Analytics';
+import Analytics from '../Pages/stats/Analytics';
 
 const router = createBrowserRouter([
     {

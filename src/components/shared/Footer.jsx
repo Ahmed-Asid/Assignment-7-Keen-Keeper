@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='bg-emerald-900'>
             <footer className="footer footer-horizontal footer-center bg-emerald-900 text-base-content rounded p-10 w-[80%] mx-auto">
                 <div className='flex flex-col gap-4'>
-                    <p className='text-7xl font-bold text-white'>KeenKeeper</p>
+                    <p className='text-5xl md:text-7xl font-bold text-white'>KeenKeeper</p>
                     <p className='text-gray-400'>Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</p>
                 </div>
                 <div className='flex flex-col gap-4 justify-center items-center'>
@@ -20,9 +20,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <hr className='border border-emerald-800 w-full' />
-                <aside className='flex justify-between w-full text-emerald-700'>
+                <aside className='flex flex-col sm:flex-row justify-between w-full text-emerald-700'>
                     <p>© {new Date().getFullYear()} KeenKeeper. All rights reserved.</p>
-                    <nav className='flex gap-3'>
+                    <nav className='flex flex-col md:flex-row gap-3'>
                         <a className="link link-hover">Terms of use</a>
                         <a className="link link-hover">Privacy policy</a>
                         <a className="link link-hover">Cookies</a>

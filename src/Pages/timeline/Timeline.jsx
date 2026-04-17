@@ -33,7 +33,7 @@ const Timeline = () => {
 
             <div className='space-y-6'>
                 {
-                    filteredTimeline.map(t => <div key={t.id} className='bg-white rounded-lg p-4 flex gap-4 items-center'>
+                    filteredTimeline.map(t => <div key={t.id} className='bg-white rounded-lg p-4 flex flex-col sm:flex-row gap-4 items-center text-center sm:text-start'>
                         <div>{actionType[t.type]}</div>
                         <div>
                             <p><span className='text-xl font-medium capitalize'>{t.type}</span> with {t.friend}</p>

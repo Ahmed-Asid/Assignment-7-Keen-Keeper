@@ -10,7 +10,7 @@ const Friend = ({ friend }) => {
             <div className='space-y-2 text-center'>
                 <h4 className='text-xl font-semibold'>{friend.name}</h4>
                 <p className='text-xs text-gray-400'>{friend.days_since_contact}d ago</p>
-                <div className='flex gap-2 justify-center'>
+                <div className='flex flex-col lg:flex-row gap-2 justify-center items-center'>
                     {
                         friend.tags.map((tag, i) => <p key={i} className='badge bg-green-300 rounded-full uppercase font-medium p-2'>{tag}</p>)
                     }

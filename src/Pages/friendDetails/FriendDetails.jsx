@@ -14,7 +14,7 @@ const FriendDetails = () => {
 
     const { handleInteraction } = useContext(FriendContext);
     return (
-        <div className='w-[80%] mx-auto grid grid-cols-3 gap-6 my-20'>
+        <div className='w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 my-20'>
             <div>
                 <div className="shadow-sm rounded-lg p-6 bg-white gap-3 flex flex-col justify-center items-center ">
                     <div>
@@ -40,7 +40,7 @@ const FriendDetails = () => {
                 </div>
             </div>
 
-            <div className='grid grid-cols-3 gap-6 col-span-2'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 md:col-span-2'>
                 <div className='bg-white rounded-lg py-8 px-4 flex flex-col gap-4 justify-center items-center'>
                     <h3 className='text-3xl font-semibold'>{expectedFriend.days_since_contact}</h3>
                     <p className='text-lg text-gray-400'>Days Since Contact</p>
@@ -53,14 +53,14 @@ const FriendDetails = () => {
                     <h3 className='text-3xl font-semibold'>{expectedFriend.next_due_date}</h3>
                     <p className='text-lg text-gray-400'>Next Due</p>
                 </div>
-                <div className='bg-white rounded-lg p-6 space-y-4 col-span-3'>
+                <div className='bg-white rounded-lg p-6 space-y-4 md:col-span-3'>
                     <div className='flex justify-between items-center'>
                         <p className='text-xl font-medium'>Relationship Goal</p>
                         <button className='btn'>Edit</button>
                     </div>
                     <p className='text-lg'><span className='text-gray-400'>Connect every</span> <span className='font-bold'>{expectedFriend.goal} days</span></p>
                 </div>
-                <div className='bg-white rounded-lg p-6 space-y-4 col-span-3'>
+                <div className='bg-white rounded-lg p-6 space-y-4 md:col-span-3'>
                     <p className='text-xl font-medium'>Relationship Goal</p>
                     <div className='grid grid-cols-3 gap-4'>
                         <div onClick={() => handleInteraction(expectedFriend, 'call')} className="btn h-auto cursor-pointer rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
