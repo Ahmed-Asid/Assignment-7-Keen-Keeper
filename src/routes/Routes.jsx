@@ -5,6 +5,7 @@ import ErrorPage from '../error/ErrorPage';
 import Homepage from '../Pages/homepage/Homepage';
 import FriendDetails from '../Pages/friendDetails/FriendDetails';
 import Timeline from '../Pages/timeline/Timeline';
+import Analytics from '../Pages/analytics/Analytics';
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: '/timeline',
                 element: <Timeline />
+            },
+            {
+                path: '/stats',
+                element: <Analytics />
             }
         ]
     }

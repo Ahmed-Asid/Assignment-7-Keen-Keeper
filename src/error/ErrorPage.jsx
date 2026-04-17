@@ -8,7 +8,7 @@ const ErrorPage = () => {
         <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
             <div className="bg-base-100 shadow-xl rounded-2xl p-8 max-w-md w-full text-center space-y-4">
 
-                <h1 className="text-5xl font-bold text-error">Oops!</h1>
+                <h1 className="text-5xl font-bold text-error">404</h1>
 
                 <p className="text-lg font-medium">
                     Something went wrong

@@ -1,11 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FriendContext } from '../../context/Interactions';
 import { BsChatTextFill, BsFillCameraVideoFill } from 'react-icons/bs';
 import { BiSolidPhoneCall } from 'react-icons/bi';
+import { FaArrowTurnDown } from 'react-icons/fa6';
 
 const Timeline = () => {
+    const [filter, setFilter] = useState("all");
 
     const { timeline } = useContext(FriendContext);
+
+    const filteredTimeline =
+        filter === "all" ? timeline : timeline.filter(t => t.type === filter);
 
     const actionType = {
         call: <BiSolidPhoneCall size={30} />,
@@ -17,16 +22,18 @@ const Timeline = () => {
             <h1 className='text-5xl font-semibold'>Timeline</h1>
 
             <div className="dropdown dropdown-start">
-                <div tabIndex={0} role="button" className="btn m-1">Click</div>
+                <div tabIndex={0} role="button" className="btn m-1 flex gap-3 items-center">Filtered Timeline <FaArrowTurnDown /></div>
                 <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                    <li><a>Item 1</a></li>
-                    <li><a>Item 2</a></li>
+                    <li onClick={() => setFilter('all')}><a>All</a></li>
+                    <li onClick={() => setFilter('call')}><a>Call</a></li>
+                    <li onClick={() => setFilter('text')}><a>Text</a></li>
+                    <li onClick={() => setFilter('video_call')}><a>Video</a></li>
                 </ul>
             </div>
 
             <div className='space-y-6'>
                 {
-                    timeline.map(t => <div key={t.id} className='bg-white rounded-lg p-4 flex gap-4 items-center'>
+                    filteredTimeline.map(t => <div key={t.id} className='bg-white rounded-lg p-4 flex gap-4 items-center'>
                         <div>{actionType[t.type]}</div>
                         <div>
                             <p><span className='text-xl font-medium capitalize'>{t.type}</span> with {t.friend}</p>

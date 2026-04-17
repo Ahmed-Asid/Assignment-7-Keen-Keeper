@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createContext } from 'react';
+import { toast } from "react-toastify";
 
 export const FriendContext = createContext();
 
@@ -15,7 +16,8 @@ const Interactions = ({ children }) => {
             id: Date.now()
         }
 
-        setTimeline(prev => [newInteraction, ...prev])
+        setTimeline(prev => [newInteraction, ...prev]);
+        toast.success(`Successfully started ${type} with ${friend.name}`);
     }
 
     const data = {

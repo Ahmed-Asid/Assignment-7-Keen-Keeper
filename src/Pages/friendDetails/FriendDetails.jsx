@@ -63,15 +63,15 @@ const FriendDetails = () => {
                 <div className='bg-white rounded-lg p-6 space-y-4 col-span-3'>
                     <p className='text-xl font-medium'>Relationship Goal</p>
                     <div className='grid grid-cols-3 gap-4'>
-                        <div onClick={() => handleInteraction(expectedFriend, 'call')} className="cursor-pointer rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
+                        <div onClick={() => handleInteraction(expectedFriend, 'call')} className="btn h-auto cursor-pointer rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
                             <FiPhoneCall size={24} />
                             <p className='text-lg'>Call</p>
                         </div>
-                        <div onClick={() => handleInteraction(expectedFriend, 'text')} className="cursor-pointer rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
+                        <div onClick={() => handleInteraction(expectedFriend, 'text')} className="btn h-auto cursor-pointer rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
                             <PiChatCircleTextBold size={24} />
                             <p className='text-lg'>Text</p>
                         </div>
-                        <div onClick={() => handleInteraction(expectedFriend, 'video_call')} className="cursor-pointer rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
+                        <div onClick={() => handleInteraction(expectedFriend, 'video_call')} className="btn h-auto cursor-pointer rounded-lg bg-base-200 flex flex-col gap-2 p-4 justify-center items-center">
                             <PiVideoCameraBold size={24} />
                             <p className='text-lg'>Video</p>
                         </div>
