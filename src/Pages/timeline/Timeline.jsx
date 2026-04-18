@@ -6,6 +6,7 @@ import { FaArrowTurnDown } from 'react-icons/fa6';
 
 const Timeline = () => {
     const [filter, setFilter] = useState("all");
+    const [latest, setLatest] = useState(true);
 
     const { timeline } = useContext(FriendContext);
 
@@ -17,18 +18,33 @@ const Timeline = () => {
         text: <BsChatTextFill size={30} />,
         video_call: <BsFillCameraVideoFill size={30} />
     }
+
+
+    const handleSort = () => {
+        if (latest) {
+            timeline.sort((a, b) => b.date - a.date);
+        }
+        else {
+            timeline.sort((a, b) => a.date - b.date);
+        }
+    }
+    handleSort();
+
     return (
         <div className='space-y-6 my-20 w-[80%] mx-auto'>
             <h1 className='text-5xl font-semibold'>Timeline</h1>
+            <div>
+                <div className="dropdown dropdown-start">
+                    <div tabIndex={0} role="button" className="btn m-1 flex gap-3 items-center">Filtered Timeline <FaArrowTurnDown /></div>
+                    <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                        <li onClick={() => setFilter('all')}><a>All</a></li>
+                        <li onClick={() => setFilter('call')}><a>Call</a></li>
+                        <li onClick={() => setFilter('text')}><a>Text</a></li>
+                        <li onClick={() => setFilter('video_call')}><a>Video</a></li>
+                    </ul>
+                </div>
 
-            <div className="dropdown dropdown-start">
-                <div tabIndex={0} role="button" className="btn m-1 flex gap-3 items-center">Filtered Timeline <FaArrowTurnDown /></div>
-                <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                    <li onClick={() => setFilter('all')}><a>All</a></li>
-                    <li onClick={() => setFilter('call')}><a>Call</a></li>
-                    <li onClick={() => setFilter('text')}><a>Text</a></li>
-                    <li onClick={() => setFilter('video_call')}><a>Video</a></li>
-                </ul>
+                <div onClick={() => setLatest(!latest)} className='btn btn-soft btn-neutral'>{latest ? 'Latest' : 'Oldest'}</div>
             </div>
 
             <div className='space-y-6'>

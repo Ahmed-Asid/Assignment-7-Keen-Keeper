@@ -1,10 +1,7 @@
-import React, { Suspense, use } from 'react';
+import React, { Suspense } from 'react';
 import Friend from './friendui/Friend';
 
-const friendsPromise = fetch('/friends.json').then((res) => res.json());
-
-const Friends = () => {
-    const friends = use(friendsPromise);
+const Friends = ({ friends }) => {
 
     return (
         <div className='space-y-4'>

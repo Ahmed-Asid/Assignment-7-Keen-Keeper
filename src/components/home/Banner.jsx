@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsPlusLg } from 'react-icons/bs';
+import { FriendContext } from '../../context/Interactions';
 
-const Banner = () => {
+const Banner = ({ friends }) => {
+    const { timeline } = useContext(FriendContext);
     return (
         <div className='flex flex-col gap-10 items-center text-center mb-10'>
             <h1 className='text-5xl font-bold'>Friends to keep close in your life</h1>
@@ -13,19 +15,19 @@ const Banner = () => {
 
             <div className='grid grid-cols-2 sm:grid-cols-4 gap-6'>
                 <div className='flex flex-col items-center justify-center gap-2 rounded-lg p-6 bg-white shadow-lg'>
-                    <h2 className='text-3xl font-semibold'>1</h2>
+                    <h2 className='text-3xl font-semibold'>{friends.length}</h2>
                     <p className='text-lg text-gray-400'>Friends</p>
                 </div>
                 <div className='flex flex-col items-center justify-center gap-2 rounded-lg p-6 bg-white shadow-lg'>
-                    <h2 className='text-3xl font-semibold'>1</h2>
+                    <h2 className='text-3xl font-semibold'>{friends.filter(f => f.status === 'on_track').length}</h2>
                     <p className='text-lg text-gray-400'>On Track</p>
                 </div>
                 <div className='flex flex-col items-center justify-center gap-2 rounded-lg p-6 bg-white shadow-lg'>
-                    <h2 className='text-3xl font-semibold'>1</h2>
+                    <h2 className='text-3xl font-semibold'>{friends.filter(f => f.status === 'overdue').length}</h2>
                     <p className='text-lg text-gray-400'>Need Attention</p>
                 </div>
                 <div className='flex flex-col items-center justify-center gap-2 rounded-lg p-6 bg-white shadow-lg'>
-                    <h2 className='text-3xl font-semibold'>1</h2>
+                    <h2 className='text-3xl font-semibold'>{timeline.length}</h2>
                     <p className='text-lg text-gray-400'>Interactions This Month</p>
                 </div>
             </div>
