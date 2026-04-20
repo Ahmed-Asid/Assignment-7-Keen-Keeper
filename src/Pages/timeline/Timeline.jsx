@@ -19,11 +19,8 @@ const Timeline = () => {
         )
             : timeline;
 
-        if (filter === 'all') {
-            return result;
-        }
-        else {
-            result.filter(t => t.type === filter);
+        if (filter !== 'all') {
+            result = result.filter(t => t.type === filter);
         }
 
         result = [...result].sort((a, b) => latest ? b.date - a.date : a.date - b.date)
