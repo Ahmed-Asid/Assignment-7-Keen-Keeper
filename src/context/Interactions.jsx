@@ -23,9 +23,10 @@ const Interactions = ({ children }) => {
     }
 
 
+
     const data = {
         timeline,
-        handleInteraction
+        handleInteraction,
     }
 
     return (
